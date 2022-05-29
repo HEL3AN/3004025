@@ -45,8 +45,8 @@ namespace _3004025
             while (true)
             {
                 DrawWindow(currentWindow);
-
-                Thread.Sleep(10);
+                ClearKey();
+                Thread.Sleep(10);                               
             }
         }      
 
@@ -115,7 +115,7 @@ namespace _3004025
             }
         }
 
-        public static void ClearKey()
+        private static void ClearKey()
         {
             key = ConsoleKey.NoName;
         }
