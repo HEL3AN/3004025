@@ -43,6 +43,7 @@ namespace _3004025
                     else
                         currentCommand--;
                     Console.Clear();
+                    Display.ClearKey();
                     break;
 
                 case ConsoleKey.DownArrow or ConsoleKey.S:
@@ -51,6 +52,7 @@ namespace _3004025
                     else
                         currentCommand++;
                     Console.Clear();
+                    Display.ClearKey();
                     break;
 
                 case ConsoleKey.Enter or ConsoleKey.Spacebar:
@@ -63,11 +65,13 @@ namespace _3004025
                         Console.Clear();
                         System.Diagnostics.Process.GetCurrentProcess().Kill();
                     }
+                    Display.ClearKey();
                     break;
 
                 case ConsoleKey.Escape:
                     Console.Clear();
                     System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    Display.ClearKey();
                     break;
                 default: break;
             }

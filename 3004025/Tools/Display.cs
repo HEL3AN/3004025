@@ -66,7 +66,7 @@ namespace _3004025
             Console.BufferWidth = consoleWidth;
 #pragma warning restore CA1416 // Проверка совместимости платформы
             Console.CursorVisible = false;
-            Console.ForegroundColor = ConsoleColor.Green;
+            //Console.ForegroundColor = ConsoleColor.Green;
         }
 
         public static void ChangeWindow(WindowList window)
@@ -115,13 +115,16 @@ namespace _3004025
             }
         }
 
+        public static void ClearKey()
+        {
+            key = ConsoleKey.NoName;
+        }
+
         private static void KeyReader()
         {
             while (true)
             {
                 key = Console.ReadKey(true).Key;
-                Thread.Sleep(10);
-                key = ConsoleKey.NoName;
             }
         }
     }
