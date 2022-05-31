@@ -4,8 +4,8 @@ namespace _3004025
 {
     public abstract class Entity
     {
-        public abstract string Id { get; }
-        public abstract string Name { get; }
+        public string Id { get; set; }
+        public string Name { get; set; }
 
         public virtual void Tick()
         {
