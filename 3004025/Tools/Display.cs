@@ -17,6 +17,8 @@ namespace _3004025
         internal static readonly int consoleHeight = 30;
         internal static readonly int consoleWidth = 105;
 
+        internal static readonly double consoleRatio = consoleWidth / consoleHeight;
+
         private static DateTime time = DateTime.Now;
 
         private static readonly string appVersion = "0.0.1";
