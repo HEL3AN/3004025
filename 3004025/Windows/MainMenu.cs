@@ -70,6 +70,10 @@ namespace _3004025
                     System.Diagnostics.Process.GetCurrentProcess().Kill();
                     break;
 
+                case ConsoleKey.F1:
+                    Display.ChangeWindow(WindowList.TESTCLASS_TextTools);
+                    break;
+
                 default:
                     break;
             }

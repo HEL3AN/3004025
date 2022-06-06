@@ -23,7 +23,7 @@ namespace _3004025
 
         private static readonly string appVersion = "0.0.1";
 
-        private static WindowList currentWindow = WindowList.TESTCLASS_TextTools; //изменяет начально окно отрисовки
+        private static WindowList currentWindow = WindowList.MainMenu; //изменяет начально окно отрисовки
 
         internal static ConsoleKey key;
         
