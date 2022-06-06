@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace _3004025
 {
@@ -6,7 +7,7 @@ namespace _3004025
     {
         public enum Position : byte
         {
-            LeftUp,
+            LeftUp = 0,
             LeftCenter,
             LeftDown,
             MiddleUp,
@@ -24,7 +25,7 @@ namespace _3004025
                 ErrorCather.ErrorMessage("Поле со значение text пустое!");
             }
 
-            switch (position){
+            switch (position) {
 
                 #region LeftUp
                 case Position.LeftUp:
@@ -94,7 +95,7 @@ namespace _3004025
 
                                 currentLine++;
                                 currentChar = 1;
-                            }
+                            }                           
                         }
                     }
                     break;
@@ -104,7 +105,7 @@ namespace _3004025
                 case Position.LeftDown:
                     if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
                     {
-                        Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight / 2);
+                        Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - 1);
                         Console.WriteLine(text);
                     }
                     else //  длина текста требует переноса строки
@@ -246,9 +247,120 @@ namespace _3004025
                         }
                     }
                     break;
+                #endregion
 
-                    #endregion
+                #region RightUp
+                case Position.RightUp:
+                    if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
+                    {
+                        Console.SetCursorPosition(Display.consoleWidth - text.Length, 1);
+                        Console.WriteLine(text);
+                    }
+                    else //  длина текста требует переноса строки
+                    {
+                        int linesCount = text.Length / (Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio)) + 1;
+                        int currentLine = 1;
+                        int currentChar = 1;
+                        Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), 1);
+                        for (int i = 0; i < text.Length; i++)
+                        {
+                            Console.Write(text[i]);
+                            currentChar++;
 
+                            if (currentChar == Display.consoleWidth / 2 - 1 && currentLine != linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), 1 + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                            else if (currentChar == Display.consoleWidth / 2 - 1 && currentLine == linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth - (text.Length - i - 1), 1 + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                        }
+                    }
+                    break;
+                #endregion
+
+                #region RightCenter
+                case Position.RightCenter:
+                    if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
+                    {
+                        Console.SetCursorPosition(Display.consoleWidth - text.Length, Display.consoleHeight / 2);
+                        Console.WriteLine(text);
+                    }
+                    else //  длина текста требует переноса строки
+                    {
+                        int linesCount = text.Length / (Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio)) + 1;
+                        int currentLine = 1;
+                        int currentChar = 1;
+                        Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), Display.consoleHeight / 2 - linesCount / 2);
+                        for (int i = 0; i < text.Length; i++)
+                        {
+                            Console.Write(text[i]);
+                            currentChar++;
+
+                            if (currentChar == Display.consoleWidth / 2 - 1 && currentLine != linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), Display.consoleHeight / 2 - linesCount / 2 + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                            else if (currentChar == Display.consoleWidth / 2 - 1 && currentLine == linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth - (text.Length - i - 1), Display.consoleHeight / 2 - linesCount / 2 + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                        }
+                    }
+                    break;
+                #endregion
+
+                #region RightDown
+                case Position.RightDown:
+                    if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
+                    {
+                        Console.SetCursorPosition(Display.consoleWidth - text.Length, Display.consoleHeight - 1);
+                        Console.WriteLine(text);
+                    }
+                    else //  длина текста требует переноса строки
+                    {
+                        int linesCount = text.Length / (Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio)) + 1;
+                        int currentLine = 1;
+                        int currentChar = 1;
+                        Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - 1 - linesCount);
+                        for (int i = 0; i < text.Length; i++)
+                        {
+                            Console.Write(text[i]);
+                            currentChar++;
+
+                            if (currentChar == Display.consoleWidth / 2 - 1 && currentLine != linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth / 2 + Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - 1 - linesCount + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                            else if (currentChar == Display.consoleWidth / 2 - 1 && currentLine == linesCount - 1)
+                            {
+                                Console.SetCursorPosition(Display.consoleWidth - (text.Length - i - 1), Display.consoleHeight - 1 - linesCount + currentLine);
+
+                                currentLine++;
+                                currentChar = 1;
+                            }
+                        }
+                    }
+                    break;
+                #endregion
+
+                default: break;
             }
             //Console.WriteLine(text);
 

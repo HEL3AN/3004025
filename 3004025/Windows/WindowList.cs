@@ -4,6 +4,7 @@
     {
         MainMenu,
         Introduction,
-        Setting
+        Setting,
+        TESTCLASS_TextTools
     }
 }

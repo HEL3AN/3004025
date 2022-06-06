@@ -23,7 +23,7 @@ namespace _3004025
 
         private static readonly string appVersion = "0.0.1";
 
-        private static WindowList currentWindow = WindowList.MainMenu;
+        private static WindowList currentWindow = WindowList.TESTCLASS_TextTools; //изменяет начально окно отрисовки
 
         internal static ConsoleKey key;
         
@@ -113,6 +113,9 @@ namespace _3004025
                     break;
                 case WindowList.Setting:
                     Setting.Tick();
+                    break;
+                case WindowList.TESTCLASS_TextTools:
+                    TESTCLASS_TextTools.Tick();
                     break;
             }
         }
