@@ -29,7 +29,9 @@ namespace _3004025
         
         #region ColorParam
         internal static double textColorFactor = 0.8;
+        internal static string textColorRed = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + ";" + 0 + "m";
         internal static string textColorGreen = "\x1b[38;2;" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + "m";
+        internal static string textColorBlue = "\x1b[38;2;" + 0 + ";" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
         internal static string textColorWhite = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
         #endregion
 
@@ -55,6 +57,7 @@ namespace _3004025
         public static void ReloadTextColors()
         {
             textColorFactor = Math.Round(textColorFactor, 1);
+            textColorRed = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + ";" + 0 + "m";
             textColorGreen = "\x1b[38;2;" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + "m";
             textColorWhite = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
         }
