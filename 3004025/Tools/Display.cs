@@ -35,6 +35,14 @@ namespace _3004025
         internal static string textColorWhite = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
         #endregion
 
+        public static List<string> textColor = new List<string>()
+        {
+            textColorRed,
+            textColorGreen,
+            textColorBlue,
+            textColorWhite
+        };
+
         public static void Main()
         {
             var handle = GetStdHandle(-11);
@@ -59,6 +67,7 @@ namespace _3004025
             textColorFactor = Math.Round(textColorFactor, 1);
             textColorRed = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + ";" + 0 + "m";
             textColorGreen = "\x1b[38;2;" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + "m";
+            textColorBlue = "\x1b[38;2;" + 0 + ";" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
             textColorWhite = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
         }
 
