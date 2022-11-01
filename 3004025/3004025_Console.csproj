@@ -10,8 +10,4 @@
     <DebugType>portable</DebugType>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Game%27s Elements\" />
-  </ItemGroup>
-
 </Project>

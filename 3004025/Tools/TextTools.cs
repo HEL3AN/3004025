@@ -712,5 +712,85 @@ namespace _3004025
                 default: break;
             }
         }
+
+        public static void WriteTextCustPoz(string text, int positionX, int positionY, int positionXEnd, int positionYEnd, string textColor)
+        {
+            positionX--;
+            positionY--;
+            positionXEnd--;
+            positionYEnd--;
+            if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
+            {
+                Console.SetCursorPosition(positionX, positionY);
+                Console.Write(textColor + text);
+            }
+            else //  длина текста требует переноса строки
+            {
+                int linesLength = positionXEnd - positionX + 1;
+                int linesCount = text.Length / linesLength + 1;
+                int currentLine = 1;
+                int currentChar = 1;
+                Console.SetCursorPosition(positionX, positionY);
+                for (int i = 0; i < text.Length; i++)
+                {
+                    Console.Write(textColor + text[i]);
+                    currentChar++;
+
+                    if (currentChar == linesLength && currentLine != linesCount - 1)
+                    {
+                        Console.SetCursorPosition(positionX, positionY + currentLine);
+
+                        currentLine++;
+                        currentChar = 1;
+                    }
+                    else if (currentChar == linesLength && currentLine == linesCount - 1)
+                    {
+                        Console.SetCursorPosition(positionX, positionY + currentLine);
+
+                        currentLine++;
+                        currentChar = 1;
+                    }
+                }
+            }
+        } // указать конец по X и Y
+
+        public static void WriteTextCustPoz(string text, int positionX, int positionY, int length, string textColor)
+        {
+            positionX--;
+            positionY--;
+            if (text.Length / (Display.consoleWidth / 2) < 1) //  длина текста НЕ требует переноса строки
+            {
+                Console.SetCursorPosition(positionX, positionY);
+                Console.Write(textColor + text);
+            }
+            else //  длина текста требует переноса строки
+            {
+                int linesLength = length;
+                int linesCount = text.Length / linesLength + 1;
+                int currentLine = 1;
+                int currentChar = 1;
+                Console.SetCursorPosition(positionX, positionY);
+                for (int i = 0; i < text.Length; i++)
+                {
+                    Console.Write(textColor + text[i]);
+                    currentChar++;
+
+                    if (currentChar == linesLength && currentLine != linesCount - 1)
+                    {
+                        Console.SetCursorPosition(positionX, positionY + currentLine);
+
+                        currentLine++;
+                        currentChar = 1;
+                    }
+                    else if (currentChar == linesLength && currentLine == linesCount - 1)
+                    {
+                        Console.SetCursorPosition(positionX, positionY + currentLine);
+
+                        currentLine++;
+                        currentChar = 1;
+                    }
+                }
+            }
+        } // указать длину строки
     }
 }

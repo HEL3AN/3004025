@@ -69,6 +69,14 @@ namespace _3004025
             textColorGreen = "\x1b[38;2;" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + "m";
             textColorBlue = "\x1b[38;2;" + 0 + ";" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
             textColorWhite = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
+
+            textColor = new List<string>()
+            {
+                textColorRed,
+                textColorGreen,
+                textColorBlue,
+                textColorWhite
+            };
         }
 
         public static void Initialization()
