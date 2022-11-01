@@ -9,7 +9,6 @@ namespace _3004025.Windows
         public static void Tick()
         {
             TextTools.WriteTextFixPosColor("Введите логин:", TextTools.Position.MiddleCenter, Display.textColorGreen);
-            Console.SetCursorPosition()
         }
     }
 }
