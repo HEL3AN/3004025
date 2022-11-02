@@ -4,7 +4,7 @@ namespace _3004025
 {
     public class MainMenu
     {
-        private static List<string> mainMenuCommands = new(capacity: 3) { "Начать игру", "Настройки", "Выход" };        
+        private static List<string> mainMenuCommands = new(capacity: 3) { "Войти", "Настройки", "Выход" };        
         private static int currentCommand = 0;
 
         public static void Tick()
@@ -55,7 +55,7 @@ namespace _3004025
 
                 case ConsoleKey.Enter or ConsoleKey.Spacebar:
                     if (currentCommand == 0)
-                        Display.ChangeWindow(WindowList.Introduction);
+                        Display.ChangeWindow(WindowList.LoginPage);
                     else if (currentCommand == 1)
                         Display.ChangeWindow(WindowList.Setting);
                     else if (currentCommand == 2)

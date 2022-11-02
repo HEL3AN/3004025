@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using _3004025.Windows;
+using System.Runtime.InteropServices;
 
 namespace _3004025
 {
@@ -65,6 +66,7 @@ namespace _3004025
         public static void ReloadTextColors()
         {
             textColorFactor = Math.Round(textColorFactor, 1);
+
             textColorRed = "\x1b[38;2;" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + ";" + 0 + "m";
             textColorGreen = "\x1b[38;2;" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + ";" + 0 + "m";
             textColorBlue = "\x1b[38;2;" + 0 + ";" + 0 + ";" + Convert.ToInt32(255 * textColorFactor) + "m";
@@ -124,12 +126,8 @@ namespace _3004025
                 case WindowList.MainMenu:
                     MainMenu.Tick();
                     break;
-                case WindowList.Introduction: //добавить запуск introduction
-                    Console.Clear();
-                    ErrorCather.ErrorMessageWithOutClosed("Этот раздел еще не готов!");
-                    Thread.Sleep(1500);
-                    Console.Clear();
-                    currentWindow = WindowList.MainMenu;
+                case WindowList.LoginPage: //добавить запуск introduction
+                    LoginPage.Tick();
                     break;
                 case WindowList.Setting:
                     Setting.Tick();

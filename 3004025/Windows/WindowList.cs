@@ -5,6 +5,7 @@
         MainMenu,
         Introduction,
         Setting,
+        LoginPage,
         TESTCLASS_TextTools
     }
 }
