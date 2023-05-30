@@ -112,7 +112,7 @@ namespace _3004025
                     }
                     else //  длина текста требует переноса строки
                     {
-                        int linesCount = text.Length / (Display.consoleWidth / 2) + 1;
+                        int linesCount = text.Length / (Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio)) + 1;
                         int currentLine = 1;
                         int currentChar = 1;
                         Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - linesCount - 1);
@@ -459,7 +459,7 @@ namespace _3004025
                     }
                     else //  длина текста требует переноса строки
                     {
-                        int linesCount = text.Length / (Display.consoleWidth / 2) + 1;
+                        int linesCount = text.Length / (Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio)) + 1;
                         int currentLine = 1;
                         int currentChar = 1;
                         Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - linesCount - 1);
@@ -470,7 +470,7 @@ namespace _3004025
 
                             if (currentChar == Display.consoleWidth / 2 - Convert.ToInt32(Display.consoleRatio) && currentLine != linesCount - 1)
                             {
-                                Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - linesCount + currentLine - 1);
+                                Console.SetCursorPosition(Convert.ToInt32(Display.consoleRatio), Display.consoleHeight - linesCount - 1 + currentLine);
 
                                 currentLine++;
                                 currentChar = 1;

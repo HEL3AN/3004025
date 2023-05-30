@@ -64,7 +64,7 @@ namespace _3004025
                     DrawWindow(currentWindow);
                     oldTime = DateTime.Now;
                 }
-                else if(currentWindow != WindowList.Game && GetTime().Second == oldTime.Second + 1 || GetTime().Second == 0 || currentWindow != oldWindow)
+                else if (currentWindow != WindowList.Game && currentWindow != WindowList.TESTCLASS_TextTools && GetTime().Second == oldTime.Second + 1 || GetTime().Second == 0 || currentWindow != oldWindow)
                 {
                     oldWindow = currentWindow;
                     DrawWindow(currentWindow);

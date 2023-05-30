@@ -20,7 +20,7 @@ namespace _3004025
             map.Draw();
             person1.Draw(Display.textColorWhite);
             
-            //TextTools.WriteTextFixPos("Map offset.X: " + map.mapOffset.X + " Map offset.Y: " + map.mapOffset.Y + "     X:" + person1.coord.X + "Y:" + person1.coord.Y + " " + map.map[person1.coord.X + 1, person1.coord.Y], TextTools.Position.RightDown);
+            TextTools.WriteTextFixPos("X = " + person1.coord.X + " Y = " + person1.coord.Y, TextTools.Position.MiddleCenter);
         }
 
         private static void Input()

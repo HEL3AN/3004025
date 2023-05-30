@@ -27,7 +27,7 @@ namespace _3004025
             if (coord.Y >= Game.map.mapSize.Y - 1) ErrorCather.ErrorMessage("Координаты по Y выходят за границы карты");
             if (coord.X <= 0) ErrorCather.ErrorMessage("Координаты по X выходят за границы карты");
             if (coord.Y <= 0) ErrorCather.ErrorMessage("Координаты по Y выходят за границы карты");
-            if (Array.IndexOf(MapObject.Empty, Game.map.mapArray[coord.X, coord.Y]) != 0 && Array.IndexOf(MapObject.Decor, Game.map.mapArray[coord.X, coord.Y]) != -1) ErrorCather.ErrorMessage("Игрок находится вне зоны карты");
+            if (Array.IndexOf(MapObject.Empty, Game.map.mapArray[coord.X, coord.Y]) != 0 && Array.IndexOf(MapObject.Decor, Game.map.mapArray[coord.X, coord.Y]) != 0) ErrorCather.ErrorMessage("Игрок находится вне зоны карты");
 
             this.coord = coord;
             this.speed = speed;
