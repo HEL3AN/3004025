@@ -4,8 +4,8 @@
     {
         MainMenu,
         Introduction,
+        Game,
         Setting,
-        LoginPage,
         TESTCLASS_TextTools
     }
 }

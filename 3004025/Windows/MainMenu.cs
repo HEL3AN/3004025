@@ -9,9 +9,15 @@ namespace _3004025
 
         public static void Tick()
         {
+            Input();
+
+            Draw();
+        }
+
+        private static void Draw()
+        {
             Display.VersionInfo();
 
-            #region Меню список
             for (int i = 0; i < mainMenuCommands.Count; i++)
             {
                 if (currentCommand == i)
@@ -27,14 +33,13 @@ namespace _3004025
                     Console.Write(Display.textColorGreen + mainMenuCommands[i]);
                 }
             }
-            #endregion
 
-            #region Время
             Console.SetCursorPosition(Display.consoleWidth / 2 - 4, Display.consoleHeight - 1);
             Console.Write(Display.textColorGreen + Display.GetTime().ToLongTimeString());
-            #endregion
+        }
 
-            #region Управление 
+        private static void Input()
+        {
             switch (Display.key)
             {
                 case ConsoleKey.UpArrow or ConsoleKey.W:
@@ -55,7 +60,7 @@ namespace _3004025
 
                 case ConsoleKey.Enter or ConsoleKey.Spacebar:
                     if (currentCommand == 0)
-                        Display.ChangeWindow(WindowList.LoginPage);
+                        Display.ChangeWindow(WindowList.Game);
                     else if (currentCommand == 1)
                         Display.ChangeWindow(WindowList.Setting);
                     else if (currentCommand == 2)
@@ -77,7 +82,6 @@ namespace _3004025
                 default:
                     break;
             }
-            #endregion
         }
     }
 }

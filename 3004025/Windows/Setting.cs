@@ -7,16 +7,22 @@
         private static bool commandIsUse = false;
         public static void Tick()
         {
+            Input();
+
+            Draw();
+        }
+
+        private static void Draw()
+        {
             Console.SetCursorPosition(Display.consoleWidth / 2 - 4, 1);
             Console.WriteLine(Display.textColorGreen + "Настройки");
 
             Display.VersionInfo();
 
-            #region Настройки список
             for (int i = 0; i < settingCommands.Count; i++)
             {
                 switch (currentCommand)
-                { 
+                {
                     case 0:
                         if (!commandIsUse)
                         {
@@ -26,7 +32,7 @@
                             Console.Write(Display.textColorGreen + Display.textColorFactor);
                         }
                         else if (commandIsUse)
-                        {                           
+                        {
                             Console.SetCursorPosition(Display.consoleWidth / 2 - settingCommands[i].Length / 2, Display.consoleHeight / 2 - settingCommands.Count / 2);
                             Console.Write(Display.textColorWhite + settingCommands[i]);
                             Console.SetCursorPosition(Display.consoleWidth / 2 - Display.textColorFactor.ToString().Length / 2, Console.CursorTop + 1);
@@ -35,14 +41,13 @@
                         break;
                 }
             }
-            #endregion
 
-            #region Время
             Console.SetCursorPosition(Display.consoleWidth / 2 - 4, Display.consoleHeight - 1);
             Console.Write(Display.textColorGreen + Display.GetTime().ToLongTimeString());
-            #endregion
+        }
 
-            #region Управление
+        private static void Input()
+        {
             switch (Display.key)
             {
                 case ConsoleKey.UpArrow or ConsoleKey.W:
@@ -104,7 +109,6 @@
                         commandIsUse = !commandIsUse;
                     break;
             }
-            #endregion     
         }
     }
 }

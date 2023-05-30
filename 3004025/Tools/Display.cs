@@ -1,5 +1,4 @@
-﻿using _3004025.Windows;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 namespace _3004025
 {
@@ -15,16 +14,18 @@ namespace _3004025
         public static extern IntPtr GetStdHandle(int handle);
         #endregion
 
-        internal static readonly int consoleHeight = 30;
-        internal static readonly int consoleWidth = 105;
+        internal static readonly int consoleHeight = 36;
+        internal static readonly int consoleWidth = 74;
 
         internal static readonly double consoleRatio = consoleWidth / consoleHeight;
 
         private static DateTime time = DateTime.Now;
+        private static DateTime oldTime = DateTime.Now;
 
         private static readonly string appVersion = "0.0.1";
 
         private static WindowList currentWindow = WindowList.MainMenu; //изменяет начально окно отрисовки
+        private static WindowList oldWindow;
 
         internal static ConsoleKey key;
         
@@ -57,9 +58,20 @@ namespace _3004025
 
             while (true)
             {
-                DrawWindow(currentWindow);
+                if (key != ConsoleKey.NoName || currentWindow != oldWindow)
+                {
+                    oldWindow = currentWindow;
+                    DrawWindow(currentWindow);
+                    oldTime = DateTime.Now;
+                }
+                else if(currentWindow != WindowList.Game && GetTime().Second == oldTime.Second + 1 || GetTime().Second == 0 || currentWindow != oldWindow)
+                {
+                    oldWindow = currentWindow;
+                    DrawWindow(currentWindow);
+                    oldTime = DateTime.Now;
+                }
                 ClearKey();
-                Thread.Sleep(10);                               
+                Thread.Sleep(10);
             }
         }      
 
@@ -95,8 +107,8 @@ namespace _3004025
 
         public static void ChangeWindow(WindowList window)
         {
+            oldWindow = currentWindow;
             currentWindow = window;
-            Console.Clear();
             Thread.Sleep(120);
         }  
 
@@ -121,13 +133,17 @@ namespace _3004025
 
         private static void DrawWindow(WindowList window)
         {
-            switch(window)
+            Console.Clear();
+            switch (window)
             {
                 case WindowList.MainMenu:
                     MainMenu.Tick();
                     break;
-                case WindowList.LoginPage: //добавить запуск introduction
-                    LoginPage.Tick();
+                case WindowList.Introduction:
+                    Introduction.Tick();
+                    break;
+                case WindowList.Game:
+                    Game.Tick();
                     break;
                 case WindowList.Setting:
                     Setting.Tick();

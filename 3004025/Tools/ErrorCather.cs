@@ -1,6 +1,6 @@
 ﻿namespace _3004025
 {
-    class ErrorCather
+    public class ErrorCather
     {
         public static string errorMessage = "Error!";
         public static void ErrorMessage(string Message)
