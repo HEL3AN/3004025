@@ -22,16 +22,16 @@ namespace _3004025
             this.description = description;
             this.sprite = sprite;
             this.posOnScreen = posOnScreen;
+            this.coord = coord;
+            this.speed = speed;
 
             if (coord.X >= Game.map.mapSize.X - 1) ErrorCather.ErrorMessage("Координаты по X выходят за границы карты");
             if (coord.Y >= Game.map.mapSize.Y - 1) ErrorCather.ErrorMessage("Координаты по Y выходят за границы карты");
             if (coord.X <= 0) ErrorCather.ErrorMessage("Координаты по X выходят за границы карты");
             if (coord.Y <= 0) ErrorCather.ErrorMessage("Координаты по Y выходят за границы карты");
-            if (Array.IndexOf(MapObject.Empty, Game.map.mapArray[coord.X, coord.Y]) != 0 && Array.IndexOf(MapObject.Decor, Game.map.mapArray[coord.X, coord.Y]) != 0) ErrorCather.ErrorMessage("Игрок находится вне зоны карты");
+            if (MapObject.OutOfMap.Any(x => x == Game.map.mapArray[this.coord.X, this.coord.Y]) == true || MapObject.Wall.Any(x => x == Game.map.mapArray[this.coord.X, this.coord.Y]) == true) ErrorCather.ErrorMessage("Игрок находится вне зоны карты");
 
-            this.coord = coord;
-            this.speed = speed;
-
+            
             if (this.coord.X > Display.consoleWidth / 2)
             {
                 Game.map.mapOffset.X = coord.X - Display.consoleWidth / 2;

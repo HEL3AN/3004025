@@ -792,5 +792,10 @@ namespace _3004025
                 }
             }
         } // указать длину строки
+
+        public static void ShowDialog(string text)
+        {
+
+        }
     }
 }

@@ -53,12 +53,14 @@ namespace _3004025
                 {
                     Console.SetCursorPosition(j - mapOffset.X, i - mapOffset.Y);
                     if ((j <= mapSize.X - 1 && i <= mapSize.Y - 1) && (j >= 0 && i >= 0))
-                        if (mapArray[j,i] == '?')
-                            Console.Write(Display.textColorWhite + mapArray[j, i]);
+                        if (MapObject.OutOfMap.Any(x => x == mapArray[j, i]) == true)
+                        {
+                            Console.Write(Display.textColorRed + mapArray[j, i]);
+                        }
                         else
-                            Console.Write(Display.textColorGreen + mapArray[j, i]);
+                            Console.Write(Display.textColorWhite + mapArray[j, i]);
                     else
-                        Console.Write(Display.textColorWhite + '?'); // заполнение за границами карты
+                        Console.Write(Display.textColorRed + MapObject.OutOfMap[0]); // заполнение за границами карты
                 }
             }
         }

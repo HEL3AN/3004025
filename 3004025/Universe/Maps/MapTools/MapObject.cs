@@ -1,6 +1,9 @@
-﻿namespace _3004025
+﻿using System;
+using System.Collections;
+
+namespace _3004025
 {
-    public static class MapObject
+    public class MapObject
     {
         public static char[] Empty = new char[] { ' ' };
         public static char[] Wall = new char[] { '#', '-', '|' };

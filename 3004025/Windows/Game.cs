@@ -8,7 +8,7 @@ namespace _3004025
                
         public static MapDrawer map = new MapDrawer(@"..\..\..\Universe\Maps\Map_Test2.txt");
 
-        static Person person1 = new Person(0, "Dude", "Homies", "NULL", '@', vievPortCenter, new Vector2(9, 7), 1);
+        static Person person1 = new Person(0, "Dude", "Homies", "NULL", '@', vievPortCenter, new Vector2(1, 8), 1);
 
         public static void Tick()
         {
@@ -18,9 +18,9 @@ namespace _3004025
             person1.Tick();
 
             map.Draw();
-            person1.Draw(Display.textColorWhite);
+            person1.Draw(Display.textColorGreen);
             
-            TextTools.WriteTextFixPos("X = " + person1.coord.X + " Y = " + person1.coord.Y, TextTools.Position.MiddleCenter);
+            TextTools.WriteTextFixPos("X = " + (person1.coord.X) + " Y = " + (person1.coord.Y), TextTools.Position.MiddleCenter);
         }
 
         private static void Input()
