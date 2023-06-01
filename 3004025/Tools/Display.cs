@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace _3004025
 {
@@ -28,6 +29,7 @@ namespace _3004025
         private static WindowList oldWindow;
 
         internal static ConsoleKey key;
+        internal static bool keyReaderSwitcher = false;
         
         #region ColorParam
         internal static double textColorFactor = 0.8;
@@ -51,7 +53,7 @@ namespace _3004025
             GetConsoleMode(handle, out int mode);
             SetConsoleMode(handle, mode | 0x4);
 
-            Thread keyReader = new(KeyReader);
+            Thread keyReader = new (KeyReader);
             keyReader.Start();
 
             Initialization();
@@ -102,14 +104,14 @@ namespace _3004025
             Console.BufferWidth = consoleWidth;
 #pragma warning restore CA1416 // Проверка совместимости платформы
             Console.CursorVisible = false;
-            //Console.ForegroundColor = ConsoleColor.Green;
+            Console.Title = "3004025 Version:" + appVersion;
         }
 
         public static void ChangeWindow(WindowList window)
         {
             oldWindow = currentWindow;
             currentWindow = window;
-            Thread.Sleep(120);
+            //Thread.Sleep(120);
         }  
 
         public static DateTime GetTime()
@@ -163,7 +165,8 @@ namespace _3004025
         {
             while (true)
             {
-                key = Console.ReadKey(true).Key;
+                if (!keyReaderSwitcher)
+                    key = Console.ReadKey(true).Key;
             }
         }
     }

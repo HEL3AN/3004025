@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>_3004025</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>_3004025.Test</StartupObject>
+    <StartupObject>_3004025.Display</StartupObject>
     <DebugType>portable</DebugType>
   </PropertyGroup>
 

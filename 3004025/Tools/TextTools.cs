@@ -795,7 +795,36 @@ namespace _3004025
 
         public static void ShowDialog(string text)
         {
-
+            for (int j = 0; j < Display.consoleHeight / 2 - 6; j++) {
+                for (int i = 0; i < Display.consoleWidth; i++)
+                {
+                    if (j == 0)
+                    {
+                        Console.SetCursorPosition(i, j);
+                        Console.Write(Display.textColorWhite + "▄");
+                    }
+                    else if (j == Display.consoleHeight / 2 - 6 - 1)
+                    {
+                        Console.SetCursorPosition(i, j);
+                        Console.Write(Display.textColorWhite + "▀");
+                    }
+                    else
+                    {
+                        if (i == 0 || i == Display.consoleWidth - 1)
+                        {
+                            Console.SetCursorPosition(0, j);
+                            Console.Write(Display.textColorWhite + "▌");
+                            Console.SetCursorPosition(Display.consoleWidth - 1, j);
+                            Console.Write(Display.textColorWhite + "▐");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(i, j);
+                            Console.Write(' ');
+                        }
+                    }
+                }
+            }
         }
     }
 }

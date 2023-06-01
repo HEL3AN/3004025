@@ -19,6 +19,7 @@ namespace _3004025
 
             map.Draw();
             person1.Draw(Display.textColorGreen);
+            TextTools.ShowDialog("1");
             
             TextTools.WriteTextFixPos("X = " + (person1.coord.X) + " Y = " + (person1.coord.Y), TextTools.Position.MiddleCenter);
         }
