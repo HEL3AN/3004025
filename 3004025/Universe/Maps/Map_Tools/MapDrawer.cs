@@ -45,7 +45,7 @@ namespace _3004025
             map_line_list.Clear(); // очистка листа
         }
 
-        public void Draw() // отрисовка карты
+        public virtual void Draw() // отрисовка карты
         {
             for (int i = mapOffset.Y; i < Display.consoleHeight + mapOffset.Y; i++)
             {
@@ -65,9 +65,9 @@ namespace _3004025
             }
         }
 
-        public void Tick()
+        public virtual void Tick()
         {
-            
+
         }                    
     }
 }

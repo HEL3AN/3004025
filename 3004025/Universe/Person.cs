@@ -44,6 +44,7 @@ namespace _3004025
             }
             else
                 Game.map.mapOffset.Y = coord.Y - Display.consoleHeight / 2;
+
             this.speed = speed;
         }
 
@@ -69,6 +70,7 @@ namespace _3004025
                         {
                             coord.Y -= speed;
                             Game.map.mapOffset.Y -= speed;
+                            Events.InvokeEvent();
                         }
                     }                   
                     break;
@@ -79,6 +81,7 @@ namespace _3004025
                         {
                             coord.Y += speed;
                             Game.map.mapOffset.Y += speed;
+                            Events.InvokeEvent();
                         }
                     }
                     break;
@@ -89,6 +92,7 @@ namespace _3004025
                         {
                             coord.X -= speed;
                             Game.map.mapOffset.X -= speed;
+                            Events.InvokeEvent();
                         }
                     }                       
                     break;
@@ -99,6 +103,7 @@ namespace _3004025
                         {
                             coord.X += speed;
                             Game.map.mapOffset.X += speed;
+                            Events.InvokeEvent();
                         }
                     }                   
                     break;
